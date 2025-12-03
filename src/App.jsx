@@ -1,18 +1,22 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
-import MainSearch from './components/MainSearch'
-import CompanySearchResults from './components/CompanySearchResults'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Favourites from "./components/Favourites";
+import Home from "./components/Home";
+import CompanyPage from "./components/CompanyPage";
 
 function App() {
   return (
     <BrowserRouter>
+      <Link to="/favourites" style={{ margin: 20, display: "inline-block" }}>
+        ⭐ Preferiti
+      </Link>
+
       <Routes>
-        <Route path="/" element={<MainSearch />} />
-        <Route path="/:company" element={<CompanySearchResults />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/:company" element={<CompanyPage />} />
+        <Route path="/favourites" element={<Favourites />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
