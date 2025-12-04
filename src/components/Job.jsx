@@ -15,6 +15,9 @@ const Job = ({ data }) => {
       >
         Aggiungi ai preferiti
       </button>
+      <button onClick={() => dispatch(removeFromFavourites(data.company_name))}>
+        Rimuovi dai preferiti
+      </button>
 
       <h3>{data.title}</h3>
     </div>

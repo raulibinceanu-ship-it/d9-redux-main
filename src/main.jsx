@@ -1,13 +1,20 @@
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import App from "./App.jsx";
-import "./index.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchJobsAction } from "../redux/actions";
 
-const root = createRoot(document.getElementById("root")); // ⬅️ MANCAVA QUESTO
+const Home = () => {
+  const dispatch = useDispatch();
+  const jobs = useSelector((state) => state.jobs.results);
 
-root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+  const handleSearch = (query) => {
+    dispatch(fetchJobsAction(query));
+  };
+
+  return (
+    <>
+      <SearchBar onSearch={handleSearch} />
+
+      <JobList jobs={jobs} />
+    </>
+  );
+};
+export default Home;

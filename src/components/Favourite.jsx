@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Favourites = () => {
-  const favourites = useSelector((state) => state.favourites);
+  const favourites = useSelector((state) => state.favourites.list);
 
   return (
     <div>
