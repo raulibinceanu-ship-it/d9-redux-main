@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchJobsAction } from "../redux/actions";
+import { fetchJobsAction } from "./redux/action";
 
 const Home = () => {
   const dispatch = useDispatch();
